@@ -1,0 +1,28 @@
+# Python virtual environment
+venv/
+
+# Byte-compiled / optimized / DLL 檔
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model files
+*.h5
+*.hdf5
+
+# Raw data
+base_dir/
+
+# Class indices file
+class_indices.json
+
+# log files
+logs/
+*.log
+
+# Work system files
+.DS_Store
+
+# Temporary files
+*.tmp
+*~
