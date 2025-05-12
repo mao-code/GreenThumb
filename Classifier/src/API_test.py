@@ -1,14 +1,20 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from Connector import PlantPredictor
+from src.Connector import PlantPredictor
 import uvicorn
 import traceback
 
+import os
+
+# Resolve the model path relative to this script's directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(script_dir, '..', 'transfer_model.h5')
+class_indices_path = os.path.join(script_dir, '..', 'class_indices.json')
 
 app = FastAPI()
 
 predictor = PlantPredictor(
-    model_path='../transfer_model.h5',
-    class_indices_path='../class_indices.json'
+    model_path=model_path,
+    class_indices_path=class_indices_path
 )
 
 @app.post("/predict")
